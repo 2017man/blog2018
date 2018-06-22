@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('tittle','注册')
+@section('title','注册')
 
 @section('content')
 <div class="col-md-offset-2 col-md-8">
