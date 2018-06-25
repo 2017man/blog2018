@@ -35,6 +35,17 @@ class User extends Authenticatable {
         });
     }
     
+    //一个用户对应多条微博
+    public function statuses() {
+        return $this->hasMany(Status::class);
+    }
+    //加载微博
+    public function feed()
+    {
+        return $this->statuses()
+            ->orderBy('created_at', 'desc');
+    }
+    
     /**
      * 通用用户头像
      * @param string $size
@@ -52,4 +63,6 @@ class User extends Authenticatable {
     public function sendPasswordResetNotification($token) {
         $this->notify(new ResetPassword($token));
     }
+    
+    
 }

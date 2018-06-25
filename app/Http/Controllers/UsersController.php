@@ -37,12 +37,15 @@ class UsersController extends Controller {
     }
     
     /**
-     * 用户个人信息展示页
+     * 当前用户的微博列表
      * @param User $user
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show(User $user) {
-        return view('users.show', compact('user'));
+        $statuses = $user->statuses()
+            ->orderBy('created_at', 'desc')
+            ->paginate(30);
+        return view('users.show', compact('user', 'statuses'));
     }
     
     /**

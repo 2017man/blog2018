@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6199beea1c7aea052d26e0e5fabd19bf",
+    "content-hash": "31cb19f4616bc4ad06eb03f2aa8f72a7",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -946,16 +946,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.30.0",
+            "version": "1.31.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "863a1a651ea324e1838da3a52753a4239b9d4bea"
+                "reference": "4dbe0e51d24a4c7e000999324d21fc25edbf7b05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/863a1a651ea324e1838da3a52753a4239b9d4bea",
-                "reference": "863a1a651ea324e1838da3a52753a4239b9d4bea",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/4dbe0e51d24a4c7e000999324d21fc25edbf7b05",
+                "reference": "4dbe0e51d24a4c7e000999324d21fc25edbf7b05",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -973,6 +973,13 @@
                 "phpunit/phpunit": "^4.8.35 || ^5.7"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Carbon\\Laravel\\ServiceProvider"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "": "src/"
@@ -996,7 +1003,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-06-15T11:52:26+00:00"
+            "time": "2018-06-24T14:32:22+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -1351,6 +1358,63 @@
             "time": "2018-06-10T17:57:20+00:00"
         },
         {
+            "name": "qiniu/php-sdk",
+            "version": "v7.2.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/qiniu/php-sdk.git",
+                "reference": "305ce1c1c0c71f794661fe45a96facf61ef96c5d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/qiniu/php-sdk/zipball/305ce1c1c0c71f794661fe45a96facf61ef96c5d",
+                "reference": "305ce1c1c0c71f794661fe45a96facf61ef96c5d",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Qiniu\\": "src/Qiniu"
+                },
+                "files": [
+                    "src/Qiniu/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Qiniu",
+                    "email": "sdk@qiniu.com",
+                    "homepage": "http://www.qiniu.com"
+                }
+            ],
+            "description": "Qiniu Resource (Cloud) Storage SDK for PHP",
+            "homepage": "http://developer.qiniu.com/",
+            "keywords": [
+                "cloud",
+                "qiniu",
+                "sdk",
+                "storage"
+            ],
+            "time": "2018-05-18T04:37:29+00:00"
+        },
+        {
             "name": "ramsey/uuid",
             "version": "3.7.3",
             "source": {
@@ -1435,6 +1499,59 @@
                 "uuid"
             ],
             "time": "2018-01-20T00:28:24+00:00"
+        },
+        {
+            "name": "stevenyangecho/laravel-u-editor",
+            "version": "v1.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stevenyangecho/laravel-u-editor.git",
+                "reference": "e8612da55f5a7ec1acf76cc2d03e3504ccb3bff9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stevenyangecho/laravel-u-editor/zipball/e8612da55f5a7ec1acf76cc2d03e3504ccb3bff9",
+                "reference": "e8612da55f5a7ec1acf76cc2d03e3504ccb3bff9",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "illuminate/support": "5.*",
+                "php": ">=5.4.0",
+                "qiniu/php-sdk": "7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Stevenyangecho\\UEditor\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Steven Yang",
+                    "email": "yqmking@163.com"
+                }
+            ],
+            "description": "UEditor for laravel5. Support i18n. UEditor is a Rich Text Web Editor From Baidu.",
+            "keywords": [
+                "laravel",
+                "laravel-u-editor",
+                "laravel5 web text editor",
+                "steven yang",
+                "stevenyangecho",
+                "ueditor"
+            ],
+            "time": "2017-06-21T06:29:09+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2565,16 +2682,16 @@
     "packages-dev": [
         {
             "name": "caouecs/laravel-lang",
-            "version": "3.0.49",
+            "version": "3.0.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/caouecs/Laravel-lang.git",
-                "reference": "c009f791582e58abfca70c8f0ded08b2668e81a8"
+                "reference": "0e69b5e23ae6f2cc9af337c95cae579a105b1d53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/c009f791582e58abfca70c8f0ded08b2668e81a8",
-                "reference": "c009f791582e58abfca70c8f0ded08b2668e81a8",
+                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/0e69b5e23ae6f2cc9af337c95cae579a105b1d53",
+                "reference": "0e69b5e23ae6f2cc9af337c95cae579a105b1d53",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2609,7 +2726,7 @@
                 "laravel",
                 "lpm"
             ],
-            "time": "2018-06-07T19:27:38+00:00"
+            "time": "2018-06-23T14:49:42+00:00"
         },
         {
             "name": "doctrine/instantiator",
