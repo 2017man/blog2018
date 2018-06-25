@@ -1,5 +1,7 @@
 @extends('layouts.default')
 
+@include('UEditor::head');
+
 @section('content')
     @if (Auth::check())
         <div class="row">
@@ -33,10 +35,14 @@
     @endif
 @stop
 
+<!-- 加载编辑器的容器 -->
+<script id="container" name="content" type="text/plain">
+    这里写你的初始化内容
+</script>
+
 <!-- 实例化编辑器 -->
 <script type="text/javascript">
     var ue = UE.getEditor('container');
-    ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');
 </script>
 
 
