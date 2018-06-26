@@ -8619,3 +8619,8 @@ aside textarea {
   margin-top: 20px;
 }
 
+#ueditor {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
