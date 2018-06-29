@@ -45,9 +45,9 @@ class UsersController extends Controller {
         $statuses = $user->statuses()
             ->orderBy('created_at', 'desc')
             ->paginate(30);
+        
         return view('users.show', compact('user', 'statuses'));
     }
-    
     
     
     /**
@@ -114,7 +114,7 @@ class UsersController extends Controller {
         $data = compact('user');
         $to = $user->email;
         $subject = "感谢注册 blog 2018 应用！请确认你的邮箱。";
-    
+        
         Mail::send($view, $data, function ($message) use ($to, $subject) {
             $message->to($to)->subject($subject);
         });
@@ -130,6 +130,20 @@ class UsersController extends Controller {
         Auth::login($user);
         session()->flash('success', '恭喜你，激活成功！');
         return redirect()->route('/', [$user]);
+    }
+    
+    //关注人列表
+    public function followings(User $user) {
+        $users = $user->followings()->paginate(30);
+        $title = '关注的人';
+        return view("users.show_follow", compact('title', 'users'));
+    }
+    
+    //粉丝列表
+    public function followers(User $user) {
+        $users = $user->followers()->paginate(30);
+        $title = '粉丝';
+        return view("users.show_follow", compact('title', 'users'));
     }
     
 }

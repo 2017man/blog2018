@@ -31,4 +31,10 @@ Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
 /**微博*/
-Route::resource('statuses','StatusesController');
+Route::resource('statuses', 'StatusesController');
+/**关注与粉丝列表*/
+Route::get('users/{user}/followings', 'UsersController@followings')->name("users.followings");
+Route::get('users/{user}/followers', 'UsersController@followers')->name("users.followers");
+/**关注与取消关注*/
+Route::post('/users/followers/{user}', 'FollowersController@store')->name('followers.store');
+Route::delete('/users/followers/{user}', 'FollowersController@destroy')->name('followers.destroy');
