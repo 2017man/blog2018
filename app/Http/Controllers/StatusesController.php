@@ -24,17 +24,16 @@ class StatusesController extends Controller {
     
     //创建微博
     public function store(Request $request) {
+        
+        return redirect()->back();
         //内容非空
         $this->validate($request, ['content' => 'required']);
         //获取当前用户示例，创建微博
-        Auth::user()
-            ->statuses()
-            ->create(['content' => $request->content,
-            ]);
+        Auth::user()->statuses()->create(['content' => $request['content']]);
         $user = Auth::user();
         session()->flash('success', '微博发布成功！');
-//        return redirect()->back();
-        return redirect('/');
+        return redirect()->back();
+//        return redirect('/');
         
     }
     
