@@ -25,7 +25,6 @@ class StatusesController extends Controller {
     //创建微博
     public function store(Request $request) {
         
-        return redirect()->back();
         //内容非空
         $this->validate($request, ['content' => 'required']);
         //获取当前用户示例，创建微博
