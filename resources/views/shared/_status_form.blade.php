@@ -1,5 +1,4 @@
 <form action="{{ route('statuses.store') }}" method="POST">
-    @include('vendor.ueditor.assets')
     @include('shared._errors')
     {{ csrf_field() }}
 
