@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 
 use Mail;
+use Parsedown;
 
 class UsersController extends Controller {
     
